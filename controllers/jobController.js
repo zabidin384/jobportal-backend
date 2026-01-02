@@ -28,7 +28,7 @@ exports.getJobs = async (req, res) => {
 		if (query.$and.length === 0) delete query.$and;
 	}
 	try {
-		const jobs = await Job.find(query).populate("company", "name companyName companyLogo");
+		const jobs = await Job.find(query).populate("company", "name companyName companyLogo").sort({ createdAt: -1 });
 		let savedJobIds = [];
 		let appliedJobStatusMap = {};
 
