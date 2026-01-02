@@ -22,7 +22,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use("/api/", (req, res) => res.send("API job portal is working!"));
+app.get("/", (req, res) => res.send("API job portal is working!"));
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/jobs", jobRoutes);
